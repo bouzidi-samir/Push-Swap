@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
+/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 10:28:01 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/06/30 15:19:37 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/01 14:34:04 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int    reverse_rotate(pile *pile_a);
 int    swap(pile *pile_a);
 int    push_to_a(pile *pile_a, pile *pile_b);
 int    push_to_b(pile *pile_b, pile *pile_a);
+void    algo(pile *pile_a);
+void    two_numbers(pile *pile_a);
+void    three_numbers(pile *pile_a);
 pile    *get_bottom(pile *pile_a);
 
 

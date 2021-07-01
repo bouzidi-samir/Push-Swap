@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
+/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:58:21 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/06/30 15:34:13 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/01 13:31:37 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ int check_difference(char *str, char *s)
 
     i = 0;
     o = 0;
-    while (str[i] && s[i])
-    {
-        if (str[i] != s[i])
-            return (1);
-        i++;
-    }
-    return (0);
+        
+    
+        while (s[i] || str[i])
+        {
+            if (str[i] != s[i])
+                return (1);
+            i++;
+        }
+    
+        return (0);
 }
 
 int check_double(int argc, char **argv)
@@ -53,7 +56,7 @@ int check_number(int argc, char **argv)
     int i;
     int j;
 
-    i = 0;
+    i = 1;
     j = 0;
     while(i <= argc - 1)
     {

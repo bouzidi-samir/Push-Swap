@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
+/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/06/30 14:45:57 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/01 13:59:40 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ int main(int argc, char **argv)
         pile_a->size ++;
         i--;
     }
-   // afficherPile(pile_a);
-   // push_to_b(pile_b, pile_a);
+    afficherPile(pile_a);
+   algo(pile_a);
    // afficherPile(pile_b);
-   // afficherPile(pile_a);
+    afficherPile(pile_a);
     free(pile_a);
     free(pile_b);
     return (0);
