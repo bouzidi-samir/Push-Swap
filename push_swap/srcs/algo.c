@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:47:09 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/07/01 14:57:50 by sbouzidi         ###   ########.fr       */
+/*   Updated: 2021/07/07 22:56:55 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ void    two_numbers(pile *pile_a)
     f = pile_a->element->number;
     s = pile_a->element->next->number;
     if(f > s) 
-    {
-        swap(pile_a);
-        write(1,"sa", 2);
-        write(1,"\n", 1);
-    }
+        swap(pile_a, 'a');
 }
 
 void    three_numbers(pile *pile_a)
@@ -38,30 +34,64 @@ void    three_numbers(pile *pile_a)
     b = pile_a->element->next->next->number;
     if(f > s && s < b && f < b)
     {
-       two_numbers(pile_a);
+       swap(pile_a, 'a');
     }
     if(f > s && s > b)
     {
-        two_numbers(pile_a);
-        reverse_rotate(pile_a); 
-        write(1,"rra", 2);
-        write(1,"\n", 1);
+        swap(pile_a, 'a');
+        reverse_rotate(pile_a, 'a'); 
     }
     if(f > s && s < b && f > b)
+        rotate(pile_a, 'a'); 
+    if(f < s && s > b && f > b)
+        reverse_rotate(pile_a, 'a'); 
+    if(f < s && s > b && f < b)
     {
-        rotate(pile_a); 
-        write(1,"ra", 2);
-        write(1,"\n", 1);
+        swap(pile_a, 'a');
+        rotate(pile_a, 'a'); 
     }
 }
 
-void    algo(pile *pile_a)
+void    under_hundred(pile *pile_a, pile *pile_b)
+{
+    int f;
+    int s;
+    pile *bottom;
+    int size;
+    
+    f = pile_a->element->number;
+    s = pile_a->element->next->number;
+    size = 0;
+    while(pile_a->size > 3)    
+    {
+        push_to_b(pile_b, pile_a);
+        size++;
+    }
+    three_numbers(pile_a);
+    while (size > 0)
+    {  
+        push_to_a(pile_a, pile_b);   
+        size--;
+        bottom = get_bottom(pile_a);  
+        if(pile_a->element->number > bottom->element->number) 
+            rotate(pile_a, 'a');
+            while(pile_a->element->number > pile_a->element->next->number )
+            { 
+                swap(pile_a, 'a');
+                push_to_b(pile_b, pile_a);
+                size++;
+            }
+    }
+    free(bottom);
+}
+
+void    algo(pile *pile_a, pile *pile_b)
 {
     if(pile_a->size < 3)
         two_numbers(pile_a);
-    if (pile_a->size)
+    if (pile_a->size == 3)
         three_numbers(pile_a);
-    
-
+    if (pile_a->size > 3)
+        under_hundred(pile_a, pile_b);
 
 }

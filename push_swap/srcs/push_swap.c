@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/01 13:59:40 by sbouzidi         ###   ########.fr       */
+/*   Updated: 2021/07/07 22:16:55 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int    init_a(int n, pile *pile_a)
     element_a->number = n;
     element_a->next = pile_a->element;    
     pile_a->element = element_a;
+    pile_a->size++;
     return (0);    
 }
 
@@ -62,12 +63,12 @@ int main(int argc, char **argv)
     {   
         n = ft_atoi(argv[i]);
         init_a(n, pile_a);
-        pile_a->size ++;
+        pile_a->element->rank = pile_a->size;
         i--;
     }
-    afficherPile(pile_a);
-   algo(pile_a);
-   // afficherPile(pile_b);
+  afficherPile(pile_a);
+   algo(pile_a, pile_b);
+    afficherPile(pile_b);
     afficherPile(pile_a);
     free(pile_a);
     free(pile_b);
