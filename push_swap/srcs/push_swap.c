@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/07 22:16:55 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/11 17:42:10 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,19 @@ int main(int argc, char **argv)
 {
     int i;
     int n;
+  //  char    **param;
     pile    *pile_a;
     pile    *pile_b;   
-       
-    check_error(argc, argv);
-    i = argc - 1;
+    t_arg		arg;
+    n = 0;
+  //  param = ft_split(argv[1], ' ');
+    get_arg(argc, argv, &arg);
+  // printf("%s", argv[0]);
+   // i = args_number(param) - 1;
+ //   if(!check_error(i, param))
+   //     return(-1);
+    argc = 2;
+    i = args_number(argv) - 1;
     pile_a = malloc(sizeof(*pile_a));
     pile_b = malloc(sizeof(*pile_b));
     pile_a->element = NULL;
@@ -66,10 +74,12 @@ int main(int argc, char **argv)
         pile_a->element->rank = pile_a->size;
         i--;
     }
-  afficherPile(pile_a);
-   algo(pile_a, pile_b);
-    afficherPile(pile_b);
-    afficherPile(pile_a);
+   // afficherPile(pile_a);
+    algo(pile_a, pile_b);
+   // afficherPile(pile_b);
+   //afficherPile(pile_a);
+    free_arg(&arg);
+  //  free(param);
     free(pile_a);
     free(pile_b);
     return (0);

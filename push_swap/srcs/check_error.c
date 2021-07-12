@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:58:21 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/01 13:31:37 by sbouzidi         ###   ########.fr       */
+/*   Updated: 2021/07/09 18:41:32 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int check_double(int argc, char **argv)
     int j;
 
     i = 0;
-    while (i <= argc - 1)    
+    while (i <= argc)    
     {
         j = i + 1;    
-        while (j <= argc - 1)
+        while (j <= argc)
         {
             if(!check_difference(argv[i], argv[j]))
                 return (1);
@@ -78,13 +78,13 @@ int check_error(int argc, char **argv)
     {
         write(2, "Error", 6);
         write(2, "\n", 1);
-        return (-1);
+        return (0);
     }
     if (argc < 3 || check_double(argc, argv) )    
     {
         write(2, "Error", 6);
         write(2, "\n", 1);
-        return (-1);
+        return (0);
     }
-    return (0);
+    return (1);
 }

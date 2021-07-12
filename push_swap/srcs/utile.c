@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 22:41:06 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/06/30 14:58:08 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/11 17:01:23 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,50 @@ pile    *get_bottom(pile *pile_a)
     return(bottom_a);
 }
 
+int args_number(char **arg)
+{
+    int i;
+
+    i = 0;
+    while(arg[i] != NULL)
+    {
+        i++;
+    }
+    return (i);    
+}
+
+void	get_arg(int argc, char **argv, t_arg *arg)
+{
+	int		i;
+	int		n;
+	char	**tab;
+
+	arg->ac = -1;
+	n = -1;
+	if (!(arg->av = malloc(sizeof(char *) * 1000)))
+		return ;
+	while (++n < argc)
+	{
+		i = -1;
+		tab = ft_split(argv[n], ' ');
+		while (tab[++i])
+		{
+			arg->av[++arg->ac] = ft_strdup(tab[i]);
+			free(tab[i]);
+		}
+		free(tab);
+	}
+	arg->av[++arg->ac] = NULL;
+}
+
+void	free_arg(t_arg *arg)
+{
+	int		i;
+
+	i = -1;
+	while (++i < arg->ac)
+	{
+		free(arg->av[i]);
+	}
+	free(arg->av);
+}
