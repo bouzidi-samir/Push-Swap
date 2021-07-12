@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/11 17:42:10 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/12 14:13:44 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,23 +61,23 @@ int main(int argc, char **argv)
    // i = args_number(param) - 1;
  //   if(!check_error(i, param))
    //     return(-1);
-    argc = 2;
     i = args_number(argv) - 1;
     pile_a = malloc(sizeof(*pile_a));
     pile_b = malloc(sizeof(*pile_b));
     pile_a->element = NULL;
     pile_b->element = NULL;
+//printf("%d", i);
     while (i >= 1)
     {   
-        n = ft_atoi(argv[i]);
+       n = ft_atoi(argv[i]);
         init_a(n, pile_a);
         pile_a->element->rank = pile_a->size;
         i--;
     }
-   // afficherPile(pile_a);
-    algo(pile_a, pile_b);
-   // afficherPile(pile_b);
-   //afficherPile(pile_a);
+  //afficherPile(pile_a);
+  algo(pile_a, pile_b);
+  // afficherPile(pile_b);
+  afficherPile(pile_a);
     free_arg(&arg);
   //  free(param);
     free(pile_a);
