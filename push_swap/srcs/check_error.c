@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:58:21 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/09 18:41:32 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/18 16:27:35 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int check_double(int argc, char **argv)
     int j;
 
     i = 0;
-    while (i <= argc)    
+    while (i <= argc - 1)    
     {
         j = i + 1;    
-        while (j <= argc)
+        while (j <= argc - 1)
         {
             if(!check_difference(argv[i], argv[j]))
                 return (1);

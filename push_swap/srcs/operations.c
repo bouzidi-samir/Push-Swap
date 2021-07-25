@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 19:00:47 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/11 16:53:25 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/22 22:11:51 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ write(1,"\n", 1);
 
 int    push_to_b(pile *pile_b, pile *pile_a)
 {
-    if (pile_a->element == NULL)
+    if (pile_a->element == NULL || pile_a->size == 0)
         return (0);
 element *supp_element;
 

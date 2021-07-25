@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/12 14:13:44 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/25 22:25:08 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,36 +50,39 @@ int main(int argc, char **argv)
 {
     int i;
     int n;
-  //  char    **param;
+    int j;
     pile    *pile_a;
     pile    *pile_b;   
     t_arg		arg;
+    
     n = 0;
-  //  param = ft_split(argv[1], ' ');
+    j = 0;
     get_arg(argc, argv, &arg);
-  // printf("%s", argv[0]);
-   // i = args_number(param) - 1;
- //   if(!check_error(i, param))
-   //     return(-1);
     i = args_number(argv) - 1;
+  //  if(!check_error(argc, argv))
+    //    return(-1);
     pile_a = malloc(sizeof(*pile_a));
     pile_b = malloc(sizeof(*pile_b));
     pile_a->element = NULL;
     pile_b->element = NULL;
-//printf("%d", i);
+    pile_a->base = malloc(sizeof(int) * i + 1);    
+    if(pile_a->base == NULL)
+        return (-1);
     while (i >= 1)
     {   
        n = ft_atoi(argv[i]);
         init_a(n, pile_a);
-        pile_a->element->rank = pile_a->size;
+        pile_a->base[j] = n;
+        j++;
         i--;
     }
+    base_sort(pile_a->base);
+
   //afficherPile(pile_a);
   algo(pile_a, pile_b);
-  // afficherPile(pile_b);
   afficherPile(pile_a);
+    afficherPile(pile_b);
     free_arg(&arg);
-  //  free(param);
     free(pile_a);
     free(pile_b);
     return (0);
