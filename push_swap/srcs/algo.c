@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:47:09 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/07/25 22:32:22 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/30 15:46:01 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,29 +211,82 @@ void    algo(pile *pile_a, pile *pile_b)
 {
     int m;
     int size;
+    int i;
     
-   // m = pile_a->size / 2;
-    m = 10;
+    i = pile_a->base_size - 1;   
+    m = pile_a->size / 5;
     size = pile_a->size - 1;
- /*   if(pile_a->size < 3)
+    if(pile_a->size < 3)
         two_numbers(pile_a);
     if (pile_a->size == 3)
         three_numbers(pile_a);
-    if (pile_a->size > 3)
+    if (pile_a->size <= 5)
         under_hundred(pile_a, pile_b);
-    if (pile_a->size > 99)
-    {*/
+    //if (pile_a->size > 99)
+    else
+    {
         while(pile_a->size > 3)
         {
             sort_a(pile_a, pile_b, m);
-            sort_a(pile_a, pile_b, 20);
-            sort_a(pile_a, pile_b, 30);
-     //     sort_a(pile_a, pile_b, pile_a->base[m]);
-      //    sort_a(pile_a, pile_b, pile_a->base[m * 4]);
+            sort_a(pile_a, pile_b, pile_a->base[m * 2]);
+            sort_a(pile_a, pile_b, pile_a->base[m * 3]);
+            sort_a(pile_a, pile_b, pile_a->base[m * 4]);
             sort_a(pile_a, pile_b, pile_a->base[size]);
         }
- //   }
+        while(i >= 0)
+        {    
+            sort_b(pile_a, pile_b, i);    
+            i--;
+        }
+        push_to_a(pile_a, pile_b);
+    }
+}
 
+int    sort_b(pile *pile_a, pile *pile_b, int i)
+{
+ //   int i;
+    
+//    i = pile_a->base_size - 1;
+    pile_b->rank_f = 1;
+   // pile_b->upper = malloc(sizeof(*pile_b->upper));
+    //if(pile_b->upper == NULL)
+      //  return (-1);
+    pile_b->upper = pile_b->element;
+    while(pile_b->size > 1)
+    {                  
+        if(pile_b->upper->number == pile_a->base[i])
+        {
+            push_upper(pile_a, pile_b);     
+            return(0);
+        }
+        pile_b->upper = pile_b->upper->next;
+        pile_b->rank_f++;
+    }
+    return (0);
+}
+
+void    push_upper(pile *pile_a, pile *pile_b)
+{
+    int bottom;
+
+    bottom = pile_b->size - pile_b->rank_f;
+    if(pile_b->rank_f <= pile_b->size / 2)
+    {
+        while(pile_b->rank_f > 1)
+        {
+            rotate(pile_b, 'b');
+            pile_b->rank_f--;
+        }
+    }
+    else if(pile_b->rank_f > pile_b->size / 2)
+    {
+        while(bottom + 1 > 0)
+        {
+            reverse_rotate(pile_b, 'b');
+            bottom--;
+        }
+    }
+    push_to_a(pile_a, pile_b);
 }
 
 int before_pb(pile *pile_a, pile *pile_b)

@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/25 22:25:08 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/30 16:53:32 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,31 @@ int    init_a(int n, pile *pile_a)
     pile_a->size++;
     return (0);    
 }
+void	base_sort(pile *pile_a, int *base)
+{
+	int	i;
+	int j;
+	int s;
+
+	i = 0;
+	s = 0;
+	while(base[i] != '\0')
+	{
+		j = i + 1;
+		while(base[j] != '\0')
+		{
+			if(base[i] > base[j])
+			{
+				s = base[i];
+				base[i] = base[j];
+				base[j] = s;
+			}
+			j++;
+		}
+		i++;
+	}
+	pile_a->base_size = pile_a->size;
+}
 
 int main(int argc, char **argv)
 {
@@ -76,12 +101,10 @@ int main(int argc, char **argv)
         j++;
         i--;
     }
-    base_sort(pile_a->base);
-
-  //afficherPile(pile_a);
-  algo(pile_a, pile_b);
+    base_sort(pile_a, pile_a->base);
+    algo(pile_a, pile_b);
   afficherPile(pile_a);
-    afficherPile(pile_b);
+//    afficherPile(pile_b);
     free_arg(&arg);
     free(pile_a);
     free(pile_b);

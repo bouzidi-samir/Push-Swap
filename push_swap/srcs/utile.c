@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 22:41:06 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/20 17:38:04 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/30 16:53:48 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,29 +89,4 @@ void	free_pile(pile *pile_a)
 	}
 	free(temp);
 	free(pile_a);
-}
-
-void	base_sort(int *base)
-{
-	int	i;
-	int j;
-	int s;
-
-	i = 0;
-	s = 0;
-	while(base[i] != '\0')
-	{
-		j = i + 1;
-		while(base[j] != '\0')
-		{
-			if(base[i] > base[j])
-			{
-				s = base[i];
-				base[i] = base[j];
-				base[j] = s;
-			}
-			j++;
-		}
-		i++;
-	}
 }

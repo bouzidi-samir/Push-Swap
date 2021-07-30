@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 19:00:47 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/22 22:11:51 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/30 16:48:32 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ supp_element = pile_b->element;
 pile_b->element = pile_b->element->next;
 free(supp_element);
 pile_b->size --;    
-pile_a->size++;
 write(1,"pa", 2);
 write(1,"\n", 1);
     return (0);
@@ -112,7 +111,6 @@ supp_element = pile_a->element;
 pile_a->element = pile_a->element->next;
 free(supp_element);
 pile_a->size --;    
-pile_b->size ++;
 write(1,"pb", 2);
 write(1,"\n", 1);
     return (0);

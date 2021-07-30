@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 10:28:01 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/25 21:45:10 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/30 14:56:16 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ typedef struct  pile
     int *base;
     struct pile    *hold_first;
     struct pile    *hold_second;
+    struct element *upper;
     int rank_f;
     int rank_s;
+    int base_size;
     int bottom;
 }   pile;
 
@@ -63,10 +65,12 @@ void	free_arg(t_arg *arg);
 pile    *get_bottom(pile *pile_a);
 void	free_pile(pile *pile_a);
 int    sort_a(pile *pile_a, pile *pile_b, int m);
-void	base_sort(int *base);
+void	base_sort(pile *pile_a, int *base);
 int    push_smaller(pile *pile_a, pile *pile_b, int m);
 void    push_from_top(pile *pile_a);
 void    push_from_bottom(pile *pile_a);
 int    before_pb(pile *pile_a, pile *pile_b);
+int    sort_b(pile *pile_a, pile *pile_b, int i);
+void    push_upper(pile *pile_a, pile *pile_b);
 
 #endif
