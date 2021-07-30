@@ -3,7 +3,7 @@ NAME = push_swap
 
 SRC_DIR = srcs/
 
-SRC = srcs/push_swap.c srcs/operations.c srcs/utile.c srcs/check_error.c srcs/algo.c
+SRC = srcs/push_swap.c srcs/operations.c srcs/utile.c srcs/check_error.c srcs/algo.c srcs/sort_a.c
 	  
 INC = includes/
 
@@ -13,7 +13,7 @@ LIB = libft.a
 
 BIN_DIR = bin/
 
-BIN = push_swap.o operations.o utile.o check_error.o algo.o
+BIN = push_swap.o operations.o utile.o check_error.o algo.o sort_a.o
 
 CC = gcc
 

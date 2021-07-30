@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 22:41:06 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/30 16:53:48 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/30 18:56:39 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,12 @@ void	free_pile(pile *pile_a)
 {
 	pile	*temp;
 	temp = malloc(sizeof(*temp));
-	
+	temp->element = pile_a->element;
 	while(pile_a->element != NULL)
-	{
-		temp->element = pile_a->element;
-		free(&pile_a->element->number);
-		free(pile_a->element);
+	{		
 		pile_a->element = pile_a->element->next;
-		free(temp->element);
+		free(pile_a->element);
 	}
-	free(temp);
+	free(temp->element);
 	free(pile_a);
 }

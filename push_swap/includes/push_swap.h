@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 10:28:01 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/30 14:56:16 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/07/30 18:08:44 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,13 @@ pile    *get_bottom(pile *pile_a);
 void	free_pile(pile *pile_a);
 int    sort_a(pile *pile_a, pile *pile_b, int m);
 void	base_sort(pile *pile_a, int *base);
+void    quick_sort(pile *pile_a, pile *pile_b);
 int    push_smaller(pile *pile_a, pile *pile_b, int m);
 void    push_from_top(pile *pile_a);
 void    push_from_bottom(pile *pile_a);
 int    before_pb(pile *pile_a, pile *pile_b);
 int    sort_b(pile *pile_a, pile *pile_b, int i);
 void    push_upper(pile *pile_a, pile *pile_b);
+void    get_closer(pile *pile_a, int m);
 
 #endif
