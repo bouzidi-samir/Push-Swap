@@ -12,30 +12,29 @@
 
 #include "push_swap.h"
 
-pile    *get_bottom(pile *pile_a)
+pile	*get_bottom(pile *pile_a)
 {
-    pile *bottom_a;
-    
-    bottom_a = malloc(sizeof(*bottom_a));
-    bottom_a->element = pile_a->element;
+	pile	*bottom_a;
 
-    while (bottom_a->element->next != NULL)
-    {
-        bottom_a->element = bottom_a->element->next;
-    }
-    return(bottom_a);
+	bottom_a = malloc(sizeof(*bottom_a));
+	bottom_a->element = pile_a->element;
+	while (bottom_a->element->next != NULL)
+	{
+		bottom_a->element = bottom_a->element->next;
+	}
+	return (bottom_a);
 }
 
-int args_number(char **arg)
+int	args_number(char **arg)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(arg[i] != NULL)
-    {
-        i++;
-    }
-    return (i);    
+	i = 0;
+	while (arg[i] != NULL)
+	{
+		i++;
+	}
+	return (i);
 }
 
 void	get_arg(int argc, char **argv, t_arg *arg)
@@ -47,7 +46,7 @@ void	get_arg(int argc, char **argv, t_arg *arg)
 	arg->ac = -1;
 	n = -1;
 	if (!(arg->av = malloc(sizeof(char *) * 1000)))
-		return;
+		return ;
 	while (++n < argc)
 	{
 		i = -1;
@@ -77,9 +76,10 @@ void	free_arg(t_arg *arg)
 void	free_pile(pile *pile_a)
 {
 	pile	*temp;
+
 	temp = malloc(sizeof(*temp));
 	temp->element = pile_a->element;
-	while(pile_a->element != NULL)
+	while (pile_a->element != NULL)
 	{		
 		pile_a->element = pile_a->element->next;
 		free(pile_a->element);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbouzidi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:46:26 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/04/01 13:50:32 by sbouzidi         ###   ########.fr       */
+/*   Updated: 2021/08/04 14:15:45 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_atoi(const char *str)
 {
 	long	i;
-	long	nbr;
+	long 	nbr;
 	int		isneg;
 
 	i = 0;
