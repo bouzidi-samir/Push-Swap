@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 19:00:47 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/04 15:38:55 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/06 13:36:28 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,10 @@ int	reverse_rotate(pile *pile_a, char c)
 
 int	push_to_a(pile *pile_a, pile *pile_b)
 {	
+	element	*supp_element;
+
 	if (pile_b->element == NULL)
 		return (0);
-	element	*supp_element;
 	init_a(pile_b->element->number, pile_a);
 	supp_element = pile_b->element;
 	pile_b->element = pile_b->element->next;
@@ -101,9 +102,10 @@ int	push_to_a(pile *pile_a, pile *pile_b)
 
 int	push_to_b(pile *pile_b, pile *pile_a)
 {
+	element	*supp_element;	
+
 	if (pile_a->element == NULL || pile_a->size == 0)
 		return (0);
-	element	*supp_element;
 	init_a(pile_a->element->number, pile_b);
 	supp_element = pile_a->element;
 	pile_a->element = pile_a->element->next;

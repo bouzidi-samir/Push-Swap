@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:47:09 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/08/04 18:49:25 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/06 14:13:37 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,59 +42,33 @@ int	before_pb(pile *pile_a, pile *pile_b)
 	int	sb;
 	int	fa;
 	int	sa;
- 
+
 	fb = pile_b->element->number;
 	sb = pile_b->element->next->number;
 	fa = pile_a->element->number;
 	sa = pile_a->element->next->number;
 	if (pile_b->size < 2 || pile_a->size < 2)
 		return (0);
-	if(fa < sa && pile_a->size >= 2)
+	if (fa < sa && pile_a->size >= 2)
 		swap(pile_a, 'a');
-	if(fb < sb)
+	if (fb < sb)
 		swap(pile_b, 'b');
-	return (0); 
+	return (0);
 }
 
-int    sort_b(pile *pile_a, pile *pile_b, int i)
+int	sort_b(pile *pile_a, pile *pile_b, int i)
 {
- //   int i;
-    
-//    i = pile_a->base_size - 1;
-    pile_b->rank_f = 1;
-   // pile_b->upper = malloc(sizeof(*pile_b->upper));
-    //if(pile_b->upper == NULL)
-      //  return (-1);
-    pile_b->upper = pile_b->element;
-    while(pile_b->size > 1)
-    {                  
-        if(pile_b->upper->number == pile_a->base[i])
-        {
-	         push_upper(pile_a, pile_b);     
-            return(0);
-        }
-        pile_b->upper = pile_b->upper->next;
-        pile_b->rank_f++;
-    }
-    return (0);
-}
-
-void    sort_five(pile *pile_a, pile *pile_b)
-{
-	int i;
-	int rank;
-	
-	i = 0;
-	rank = 1;
-	pile_a->upper = pile_a->element;
-	while (pile_a->base_size > 3)
+	pile_b->rank_f = 1;
+	pile_b->upper = pile_b->element;
+	while (pile_b->size > 1)
 	{
-		if (pile_a->upper->number = pile_a->base[i])
+		if (pile_b->upper->number == pile_a->base[i])
 		{
-			if (rank = pile_a->size)
-				rotate(pile_a, 'a');
-			else
+			push_upper(pile_a, pile_b);
+			return (0);
 		}
-	
+		pile_b->upper = pile_b->upper->next;
+		pile_b->rank_f++;
 	}
+	return (0);
 }

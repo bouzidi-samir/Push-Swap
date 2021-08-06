@@ -14,9 +14,9 @@
 
 long long	ft_atoi_long(const char *str)
 {
-	long	i;
+	long		i;
 	long long	nbr;
-	int		isneg;
+	int			isneg;
 
 	i = 0;
 	nbr = 0;
@@ -56,8 +56,8 @@ int	check_difference(char *str, char *s)
 
 int	check_double(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
 	long long	l;
 
 	i = 0;
@@ -65,7 +65,7 @@ int	check_double(int argc, char **argv)
 	{
 		l = ft_atoi_long(argv[i]);
 		if (l < -2147483648 || l > 2147483647)
-			return (1);		
+			return (1);
 		j = i + 1;
 		while (j <= argc - 1)
 		{
