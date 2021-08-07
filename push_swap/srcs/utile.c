@@ -45,7 +45,8 @@ void	get_arg(int argc, char **argv, t_arg *arg)
 
 	arg->ac = -1;
 	n = -1;
-	if (!(arg->av = malloc(sizeof(char *) * 1000)))
+	arg->av = malloc(sizeof(char *) * 1000);
+	if (!(arg->av))
 		return ;
 	while (++n < argc)
 	{
