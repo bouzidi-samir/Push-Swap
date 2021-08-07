@@ -6,15 +6,15 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 19:00:47 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/06 13:36:28 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 08:40:48 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(pile *pile_a, char c)
+int	swap(t_pile *pile_a, char c)
 {
-	pile	*second;
+	t_pile	*second;
 	int		swap;
 
 	second = malloc(sizeof(*second));
@@ -33,9 +33,9 @@ int	swap(pile *pile_a, char c)
 	return (0);
 }
 
-int	rotate(pile *pile_a, char c)
+int	rotate(t_pile *pile_a, char c)
 {
-	pile	*bottom_a;
+	t_pile	*bottom_a;
 
 	bottom_a = malloc(sizeof(*bottom_a));
 	if (bottom_a == NULL)
@@ -57,10 +57,10 @@ int	rotate(pile *pile_a, char c)
 	return (0);
 }
 
-int	reverse_rotate(pile *pile_a, char c)
+int	reverse_rotate(t_pile *pile_a, char c)
 {
-	pile	*bottom_a;
-	pile	*b_bottom;
+	t_pile	*bottom_a;
+	t_pile	*b_bottom;
 
 	b_bottom = malloc(sizeof(*b_bottom));
 	if (b_bottom == NULL)
@@ -84,9 +84,9 @@ int	reverse_rotate(pile *pile_a, char c)
 	return (0);
 }
 
-int	push_to_a(pile *pile_a, pile *pile_b)
+int	push_to_a(t_pile *pile_a, t_pile *pile_b)
 {	
-	element	*supp_element;
+	t_element	*supp_element;
 
 	if (pile_b->element == NULL)
 		return (0);
@@ -100,9 +100,9 @@ int	push_to_a(pile *pile_a, pile *pile_b)
 	return (0);
 }
 
-int	push_to_b(pile *pile_b, pile *pile_a)
+int	push_to_b(t_pile *pile_b, t_pile *pile_a)
 {
-	element	*supp_element;	
+	t_element	*supp_element;	
 
 	if (pile_a->element == NULL || pile_a->size == 0)
 		return (0);

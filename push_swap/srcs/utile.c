@@ -6,15 +6,15 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 22:41:06 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/30 18:56:39 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 08:38:52 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-pile	*get_bottom(pile *pile_a)
+t_pile	*get_bottom(t_pile *pile_a)
 {
-	pile	*bottom_a;
+	t_pile	*bottom_a;
 
 	bottom_a = malloc(sizeof(*bottom_a));
 	bottom_a->element = pile_a->element;
@@ -73,9 +73,9 @@ void	free_arg(t_arg *arg)
 	free(arg->av);
 }
 
-void	free_pile(pile *pile_a)
+void	free_pile(t_pile *pile_a)
 {
-	pile	*temp;
+	t_pile	*temp;
 
 	temp = malloc(sizeof(*temp));
 	temp->element = pile_a->element;

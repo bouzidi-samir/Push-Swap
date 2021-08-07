@@ -6,13 +6,13 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:47:09 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/08/06 14:13:37 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 08:00:19 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_upper(pile *pile_a, pile *pile_b)
+void	push_upper(t_pile *pile_a, t_pile *pile_b)
 {
 	int	bottom;
 
@@ -36,7 +36,7 @@ void	push_upper(pile *pile_a, pile *pile_b)
 	push_to_a(pile_a, pile_b);
 }
 
-int	before_pb(pile *pile_a, pile *pile_b)
+int	before_pb(t_pile *pile_a, t_pile *pile_b)
 {
 	int	fb;
 	int	sb;
@@ -56,7 +56,7 @@ int	before_pb(pile *pile_a, pile *pile_b)
 	return (0);
 }
 
-int	sort_b(pile *pile_a, pile *pile_b, int i)
+int	sort_b(t_pile *pile_a, t_pile *pile_b, int i)
 {
 	pile_b->rank_f = 1;
 	pile_b->upper = pile_b->element;

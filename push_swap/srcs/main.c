@@ -6,13 +6,13 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 07:30:24 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/06 13:01:21 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 08:37:30 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	parcing(pile *pile_a, char **argv)
+int	parcing(t_pile *pile_a, char **argv)
 {
 	int	i;
 	int	n;
@@ -35,7 +35,7 @@ int	parcing(pile *pile_a, char **argv)
 	return (1);
 }
 
-int	check_sort(int *base, pile *pile_a)
+int	check_sort(int *base, t_pile *pile_a)
 {
 	int	i;
 	int	j;
@@ -59,7 +59,7 @@ int	check_sort(int *base, pile *pile_a)
 	return (1);
 }
 
-void	base_sort(pile *pile_a, int *base)
+void	base_sort(t_pile *pile_a, int *base)
 {
 	int	i;
 	int	j;
@@ -85,9 +85,9 @@ void	base_sort(pile *pile_a, int *base)
 	pile_a->base_size = pile_a->size;
 }
 
-int	init_a(int n, pile *pile_a)
+int	init_a(int n, t_pile *pile_a)
 {
-	element	*element_a;
+	t_element	*element_a;
 
 	element_a = malloc(sizeof(*element_a));
 	if (element_a == NULL)
@@ -101,8 +101,8 @@ int	init_a(int n, pile *pile_a)
 
 int	main(int argc, char **argv)
 {
-	pile	*pile_a;
-	pile	*pile_b;
+	t_pile	*pile_a;
+	t_pile	*pile_b;
 	t_arg	arg;
 
 	get_arg(argc, argv, &arg);

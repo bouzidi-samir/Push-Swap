@@ -6,13 +6,13 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/06 14:14:40 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 08:41:33 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	three_numbers(pile *pile_a)
+void	three_numbers(t_pile *pile_a)
 {
 	int	f;
 	int	s;
@@ -39,7 +39,7 @@ void	three_numbers(pile *pile_a)
 	}
 }
 
-void	check_upper(pile *pile_a, pile *pile_b, int rank)
+void	check_upper(t_pile *pile_a, t_pile *pile_b, int rank)
 {
 	int	rr;
 
@@ -63,11 +63,11 @@ void	check_upper(pile *pile_a, pile *pile_b, int rank)
 	push_to_b(pile_b, pile_a);
 }
 
-void	sort_five(pile *pile_a, pile *pile_b)
+void	sort_five(t_pile *pile_a, t_pile *pile_b)
 {
 	int		i;
 	int		rank;
-	pile	*test;
+	t_pile	*test;
 
 	i = 0;
 	pile_a->upper = pile_a->element;
@@ -91,7 +91,7 @@ void	sort_five(pile *pile_a, pile *pile_b)
 	}	
 }
 
-void	quick_sort(pile *pile_a, pile *pile_b, int d)
+void	quick_sort(t_pile *pile_a, t_pile *pile_b, int d)
 {
 	int	m;
 	int	size;
@@ -119,7 +119,7 @@ void	quick_sort(pile *pile_a, pile *pile_b, int d)
 	push_to_a(pile_a, pile_b);
 }
 
-void	push_swap(pile *pile_a, pile *pile_b)
+void	push_swap(t_pile *pile_a, t_pile *pile_b)
 {
 	int	f;
 	int	s;

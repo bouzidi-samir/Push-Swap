@@ -6,13 +6,13 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 17:57:08 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/07/30 18:19:24 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 08:26:21 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_from_top(pile *pile_a)
+void	push_from_top(t_pile *pile_a)
 {
 	if (pile_a->rank_f > 1)
 	{
@@ -35,7 +35,7 @@ void	push_from_top(pile *pile_a)
 	}
 }
 
-void	push_from_bottom(pile *pile_a)
+void	push_from_bottom(t_pile *pile_a)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ void	push_from_bottom(pile *pile_a)
 	}
 }
 
-int	push_smaller(pile *pile_a, pile *pile_b, int m)
+int	push_smaller(t_pile *pile_a, t_pile *pile_b, int m)
 {
 	int	b;
 	int	b1;
@@ -79,9 +79,9 @@ int	push_smaller(pile *pile_a, pile *pile_b, int m)
 	return (0);
 }
 
-void	get_closer(pile *pile_a, int m)
+void	get_closer(t_pile *pile_a, int m)
 {
-	pile	*temp;
+	t_pile	*temp;
 
 	temp = malloc(sizeof(*temp));
 	while (pile_a->hold_first->element != NULL)
@@ -107,7 +107,7 @@ void	get_closer(pile *pile_a, int m)
 	free(temp);
 }
 
-int	sort_a(pile *pile_a, pile *pile_b, int m)
+int	sort_a(t_pile *pile_a, t_pile *pile_b, int m)
 {
 	pile_a->rank_f = 1;
 	pile_a->bottom = 1;
