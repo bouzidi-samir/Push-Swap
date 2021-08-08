@@ -6,13 +6,13 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 07:30:24 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/07 08:37:30 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/08 09:39:53 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	parcing(t_pile *pile_a, char **argv)
+int	parcing(t_pile *pile_a, char **argv, t_arg arg)
 {
 	int	i;
 	int	n;
@@ -23,7 +23,10 @@ int	parcing(t_pile *pile_a, char **argv)
 	j = 0;
 	pile_a->base = malloc(sizeof(int) * i + 1);
 	if (pile_a->base == NULL)
+	{	
+		free_arg(&arg);
 		return (-1);
+	}
 	while (i >= 1)
 	{
 		n = ft_atoi(argv[i]);
@@ -32,6 +35,7 @@ int	parcing(t_pile *pile_a, char **argv)
 		j++;
 		i--;
 	}
+	free_arg(&arg);
 	return (1);
 }
 
@@ -116,10 +120,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	pile_a->element = NULL;
 	pile_b->element = NULL;
-	if (!parcing(pile_a, argv))
-		return (-1);
-	free_arg(&arg);
-	if (check_sort(pile_a->base, pile_a) != 1)
+	if (!parcing(pile_a, argv, arg) || check_sort(pile_a->base, pile_a) != 1)
 		return (-1);
 	base_sort(pile_a, pile_a->base);
 	push_swap(pile_a, pile_b);

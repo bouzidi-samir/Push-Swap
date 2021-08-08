@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 10:28:01 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/07 08:34:22 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/08 09:25:46 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int				before_pb(t_pile *pile_a, t_pile *pile_b);
 int				sort_b(t_pile *pile_a, t_pile *pile_b, int i);
 void			push_upper(t_pile *pile_a, t_pile *pile_b);
 void			get_closer(t_pile *pile_a, int m);
-int				parcing(t_pile *pile_a, char **argv);
+int				parcing(t_pile *pile_a, char **argv, t_arg arg);
 int				check_sort(int *base, t_pile *pile_a);
 long long		ft_atoi_long(const char *str);
 void			sort_five(t_pile *pile_a, t_pile *pile_b);

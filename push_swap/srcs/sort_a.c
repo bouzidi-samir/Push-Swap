@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 17:57:08 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/07 08:26:21 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 18:27:43 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	get_closer(t_pile *pile_a, int m)
 	t_pile	*temp;
 
 	temp = malloc(sizeof(*temp));
+	if (temp == NULL)
+		return ;
 	while (pile_a->hold_first->element != NULL)
 	{
 		if (pile_a->hold_first->element->number < m)
@@ -109,14 +111,19 @@ void	get_closer(t_pile *pile_a, int m)
 
 int	sort_a(t_pile *pile_a, t_pile *pile_b, int m)
 {
-	pile_a->rank_f = 1;
-	pile_a->bottom = 1;
-	pile_a->hold_first = malloc(sizeof(pile_a->hold_first));
 	if (pile_a->size == 1)
 	{
 		push_to_b(pile_b, pile_a);
 		return (0);
 	}
+	pile_a->rank_f = 1;
+	pile_a->bottom = 1;
+	pile_a->hold_first = malloc(sizeof(pile_a->hold_first));
+	/*if (pile_a->size == 1)
+	{
+		push_to_b(pile_b, pile_a);
+		return (0);
+	}*/
 	if (pile_a->hold_first == NULL)
 		return (-1);
 	pile_a->hold_first->element = pile_a->element;

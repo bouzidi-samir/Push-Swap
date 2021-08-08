@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:13:13 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/07 08:41:33 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/07 18:00:20 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	sort_five(t_pile *pile_a, t_pile *pile_b)
 		}		
 		i++;
 	}	
+	free(test);
 }
 
 void	quick_sort(t_pile *pile_a, t_pile *pile_b, int d)
