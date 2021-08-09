@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 07:30:24 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/09 13:22:25 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/09 16:56:42 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_sort(int *base, t_pile *pile_a)
 	while (i <= pile_a->size)
 	{
 		j = i + 1;
-		while (j <= pile_a->size)
+		while (j <= pile_a->size - 1)
 		{
 			if (base[i] < base[j])
 				c++;
