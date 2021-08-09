@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 10:28:01 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/08 09:25:46 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/09 14:46:05 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_pile
 	int					*base;
 	struct s_pile		*hold_first;
 	struct s_pile		*hold_second;
+	struct s_pile		*temp;
 	struct s_element	*upper;
 	int					rank_f;
 	int					rank_s;

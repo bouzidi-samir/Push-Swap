@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 17:57:08 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/09 13:29:19 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/09 14:52:49 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,8 @@ int	push_smaller(t_pile *pile_a, t_pile *pile_b, int m)
 
 void	get_closer(t_pile *pile_a, int m)
 {
-	t_pile	*temp;
-
-	temp = malloc(sizeof(*temp));
-	if (temp == NULL)
+	pile_a->temp = malloc(sizeof(*pile_a->temp));
+	if (pile_a->temp == NULL)
 		return ;
 	while (pile_a->hold_first->element != NULL)
 	{
@@ -95,18 +93,18 @@ void	get_closer(t_pile *pile_a, int m)
 	}
 	while (pile_a->hold_second->element != pile_a->element)
 	{
-		temp->element = pile_a->element;
+		pile_a->temp->element = pile_a->element;
 		if (pile_a->hold_second->element->number < m)
 			break ;
-		while (temp->element->next != pile_a->hold_second->element)
+		while (pile_a->temp->element->next != pile_a->hold_second->element)
 		{
-			temp->element = temp->element->next;
+			pile_a->temp->element = pile_a->temp->element->next;
 			pile_a->rank_s--;
 		}
-		pile_a->hold_second->element = temp->element;
+		pile_a->hold_second->element = pile_a->temp->element;
 		pile_a->bottom++;
 	}
-	free(temp);
+	free(pile_a->temp);
 }
 
 int	sort_a(t_pile *pile_a, t_pile *pile_b, int m)
@@ -127,8 +125,6 @@ int	sort_a(t_pile *pile_a, t_pile *pile_b, int m)
 	pile_a->rank_s = pile_a->size - pile_a->bottom;
 	if (pile_a->hold_first->element == NULL)
 	{
-		pile_a->hold_second = NULL;
-		pile_a->hold_first = NULL;
 		free(pile_a->hold_second);
 		free(pile_a->hold_first);
 		return (0);
