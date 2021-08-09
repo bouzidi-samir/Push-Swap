@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 07:30:24 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/08 09:39:53 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/09 13:22:25 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,6 @@ int	main(int argc, char **argv)
 	get_arg(argc, argv, &arg);
 	if (!check_error(argc, argv))
 		return (-1);
-	if (argc < 3)
-		return (0);
 	pile_a = malloc(sizeof(*pile_a));
 	pile_b = malloc(sizeof(*pile_b));
 	if (pile_a == NULL || pile_b == NULL)
@@ -121,7 +119,11 @@ int	main(int argc, char **argv)
 	pile_a->element = NULL;
 	pile_b->element = NULL;
 	if (!parcing(pile_a, argv, arg) || check_sort(pile_a->base, pile_a) != 1)
+	{	
+		free_pile(pile_a);
+		free_pile(pile_b);
 		return (-1);
+	}
 	base_sort(pile_a, pile_a->base);
 	push_swap(pile_a, pile_b);
 	free_pile(pile_a);

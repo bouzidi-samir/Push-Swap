@@ -6,7 +6,7 @@
 /*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:58:21 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/04 14:40:35 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/09 13:10:54 by samirbouzid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,7 @@ int	check_error(int argc, char **argv)
 		write(2, "\n", 1);
 		return (0);
 	}
+	if (argc < 3)
+		return (0);	
 	return (1);
 }
