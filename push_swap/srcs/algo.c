@@ -6,7 +6,7 @@
 /*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:47:09 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/08/10 12:54:30 by sbouzidi         ###   ########.fr       */
+/*   Updated: 2021/08/10 13:02:27 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	sort_b(t_pile *pile_a, t_pile *pile_b, int i)
 	return (0);
 }
 
-void algo(t_pile *pile_a, t_pile *pile_b)
+void	algo(t_pile *pile_a, t_pile *pile_b)
 {
 	base_sort(pile_a, pile_a->base);
 	push_swap(pile_a, pile_b);
