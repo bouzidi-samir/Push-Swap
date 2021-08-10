@@ -6,7 +6,7 @@
 /*   By: sbouzidi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 09:03:54 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/04/01 13:21:49 by sbouzidi         ###   ########.fr       */
+/*   Updated: 2021/08/10 11:02:06 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static	int	word_count(char const *s, char c)
 	return (count);
 }
 
-static 	int	word_length(char const *s, char c, int a)
+static int	word_length(char const *s, char c, int a)
 {
 	int	i;
 	int	length;
