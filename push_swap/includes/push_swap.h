@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
+/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 10:28:01 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/09 14:46:05 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/10 11:36:56 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int				check_sort(int *base, t_pile *pile_a);
 long long		ft_atoi_long(const char *str);
 void			sort_five(t_pile *pile_a, t_pile *pile_b);
 void			check_upper(t_pile *pile_a, t_pile *pile_b, int rank);
+void			algo(t_pile *pile_a, t_pile *pile_b);
 
 #endif

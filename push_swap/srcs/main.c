@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
+/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 07:30:24 by samirbouzid       #+#    #+#             */
-/*   Updated: 2021/08/09 16:56:42 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/10 11:53:26 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,10 @@ int	main(int argc, char **argv)
 
 	get_arg(argc, argv, &arg);
 	if (!check_error(argc, argv))
+	{	
+		free_arg(&arg);
 		return (-1);
+	}
 	pile_a = malloc(sizeof(*pile_a));
 	pile_b = malloc(sizeof(*pile_b));
 	if (pile_a == NULL || pile_b == NULL)
@@ -120,13 +123,11 @@ int	main(int argc, char **argv)
 	pile_b->element = NULL;
 	if (!parcing(pile_a, argv, arg) || check_sort(pile_a->base, pile_a) != 1)
 	{	
+		free(pile_a->base);
 		free_pile(pile_a);
 		free_pile(pile_b);
 		return (-1);
 	}
-	base_sort(pile_a, pile_a->base);
-	push_swap(pile_a, pile_b);
-	free_pile(pile_a);
-	free_pile(pile_b);
+	algo(pile_a, pile_b);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samirbouzidi <samirbouzidi@student.42.f    +#+  +:+       +#+        */
+/*   By: sbouzidi <sbouzidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:47:09 by sbouzidi          #+#    #+#             */
-/*   Updated: 2021/08/07 08:00:19 by samirbouzid      ###   ########.fr       */
+/*   Updated: 2021/08/10 12:54:30 by sbouzidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,13 @@ int	sort_b(t_pile *pile_a, t_pile *pile_b, int i)
 		pile_b->rank_f++;
 	}
 	return (0);
+}
+
+void algo(t_pile *pile_a, t_pile *pile_b)
+{
+	base_sort(pile_a, pile_a->base);
+	push_swap(pile_a, pile_b);
+	free(pile_a->base);
+	free_pile(pile_a);
+	free_pile(pile_b);
 }
